@@ -1,0 +1,106 @@
+.resultItem {
+    width: 555px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    padding: 15px 20px 15px 15px;
+    background: #111111c7;
+    border-radius: 10px;
+}
+
+.posterWrapper {
+    flex-shrink: 0;
+    width: 95px;
+    height: 141px;
+    left: 458px;
+    border-radius: 8px;
+    overflow:hidden;
+    margin-right: 20px;
+}
+
+.posterImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.infoTextContainer {
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+
+.topContainer {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.movieTitle {
+    width: 300px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #FEFEFE;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rating {
+    flex-shrink: 0;
+    padding: 7px 12px 8px;
+    width: 87px;
+    height: 30px;
+    background: #FAC539;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.mediumContainer {
+    font-size: 14px;
+    line-height: 17px;
+    color: #FEFEFE;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 15px;
+
+}
+
+.mediumContainer span {
+    position: relative;
+    /* line-height: 1; */
+    padding-right: 10px;
+    /* border-right: 1px solid #FEFEFE; */
+    margin-right: 10px;
+
+}
+
+.mediumContainer span:after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 16px;
+    background-color: #FEFEFE;;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.mediumContainer span:last-child:after {
+    display: none;
+}
+
+.type {}
+
+.genre {}
+
+.year {}
+
+.awards {
+    font-size: 12px;
+    line-height: 1.25;
+    color: #FBFBFB;
+}
