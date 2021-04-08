@@ -1,25 +1,31 @@
 import cl from './SearchResultsItem.module.css';
-import poster from '../../../../images/searchPoster.jpg'
+// import poster from '../../../../images/searchPoster.jpg'
 
 
-function SearchResultsItem() {
+function SearchResultsItem(props) {
+
+  const currentResult = props.currentResult;
+
   return (
     <>
       <div className={cl.resultItem}>
-        <div className={cl.posterWrapper}>
-          <img src={poster} alt="Poster" className={cl.posterImg}/>
-        </div>
+        <a className={cl.posterWrapper} href = '/'>
+          <img src={currentResult.Poster} alt="Poster" className={cl.posterImg}/>
+        </a>
         <div className={cl.infoTextContainer}>
           <div className={cl.topContainer}>
-            <h5 className={cl.movieTitle} title = 'The Queens Gambit'>The Queen's Gambit</h5>
-            <div className={cl.rating}>IMDb 8.8</div>
+            <a className={cl.movieTitle} href = '/' title = {currentResult.Title} >{currentResult.Title}</a>
+            <div className={cl.rating}>IMDb {currentResult.imdbRating}</div>
           </div>
           <div className={cl.mediumContainer}>
-            <span className={cl.type}>TVSeries</span>
-            <span className={cl.genre}>Drama</span>
-            <span className={cl.year}>2020</span>
+            <span className={cl.type}>{currentResult.Type}</span>
+            <span className={cl.genre}>{currentResult.Genre}</span>
+            <span className={cl.year}>{currentResult.Year}</span>
           </div>
-          <div className={cl.awards}>Top Rated TV #148 | Won 2 Golden Globes. Another 12 wins & 19 nominations.</div>
+          <div className={cl.awards}>
+            {currentResult.Awards !== 'N/A' &&
+            currentResult.Awards}
+            </div>
         </div>
       </div>
     </>

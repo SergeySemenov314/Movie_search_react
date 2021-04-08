@@ -9,6 +9,7 @@
 }
 
 .posterWrapper {
+    display: block;
     flex-shrink: 0;
     width: 95px;
     height: 141px;
@@ -47,6 +48,10 @@
     text-overflow: ellipsis;
 }
 
+.movieTitle:hover {
+    color: #FEFEFE;
+}
+
 .rating {
     flex-shrink: 0;
     padding: 7px 12px 8px;
@@ -70,9 +75,7 @@
 
 .mediumContainer span {
     position: relative;
-    /* line-height: 1; */
     padding-right: 10px;
-    /* border-right: 1px solid #FEFEFE; */
     margin-right: 10px;
 
 }

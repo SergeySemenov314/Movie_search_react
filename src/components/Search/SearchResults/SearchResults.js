@@ -2,11 +2,11 @@ import cl from './SearchResults.module.css';
 import SearchResultsItem from './SearchResultsItem/SearchResultsItem';
 
 
-function SearchResults() {
+function SearchResults(props) {
   return (
     <>
     <div className = {cl.searchResults}>
-      <SearchResultsItem />
+      <SearchResultsItem currentResult = {props.currentResult}/>
     </div>
       
     </>
