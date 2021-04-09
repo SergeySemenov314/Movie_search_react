@@ -52,16 +52,7 @@
     color: #FEFEFE;
 }
 
-.rating {
-    flex-shrink: 0;
-    padding: 7px 12px 8px;
-    width: 87px;
-    height: 30px;
-    background: #FAC539;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 900;
-}
+
 
 .mediumContainer {
     font-size: 14px;

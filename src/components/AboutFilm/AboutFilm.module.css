@@ -1,0 +1,298 @@
+.headerBg {
+    background: #111111;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.brandContainer {}
+
+.brandText {
+    font-weight: 300;
+    font-size: 24px;
+    color: #FEFEFE;
+}
+
+.brandText:hover {
+    color: #FEFEFE;
+
+}
+
+.searchForm {
+    position: relative;
+}
+
+.searchImg {
+    position: absolute;
+    left: 30px;
+    top: 29%;
+
+}
+
+.searchInput {
+    width: 420px;
+    height: 50px;
+    padding: 14px 14px 14px 68px;
+    background: #1B1919;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #FEFEFE;
+}
+
+.searchInput::placeholder {
+    font-size: 18px;
+    color: #5F5F5F;
+}
+
+
+
+/*===================== main =========================*/
+
+.mainBg {
+    position: relative;
+    background: url(../../images/imagePoster.jpg) no-repeat center;
+    background-size: cover;
+    background-color: black;
+    height: 810px;
+}
+
+.mainOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    background: linear-gradient(90.3deg, #111111 19%, rgba(17, 17, 17, 0) 99.75%);
+}
+
+.filmTitle {
+    width: 566px;
+    height: 176px;
+    font-weight: 900;
+    font-size: 72px;
+    line-height: 1.22;
+    color: #FBFBFB;
+    margin-bottom: 30px;
+}
+
+.infoBox {
+    display: flex;
+    margin-bottom: 196px;
+}
+
+.ratingBlockMain {
+    margin-right: 24px;
+}
+
+.infoBox span {
+    position: relative;
+    padding-right: 24px;
+    font-weight: 600;
+    font-size: 24px;
+    color: #FBFBFB;
+    margin-right: 24px;
+}
+
+.infoBox span:after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 24px;
+    background-color: #FEFEFE;
+    ;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.infoBox span:last-child:after {
+    display: none;
+}
+
+.genre {}
+
+.type {}
+
+.year {}
+
+.btnTrailer {
+    width: 199px;
+    height: 64px;
+    border: 2px solid #FBFBFB;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    color: #FBFBFB;
+    transition: background-color .3s ease-in,
+        color .3s ease-in;
+    margin-bottom: 50px;
+}
+
+.btnTrailer:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.awards {
+    width: 433px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.22;
+    color: #FBFBFB;
+}
+
+/* =============== plot =========== */
+
+.plotBg {
+    background-color: #fff;
+}
+
+.plotHeading {
+    width: 800px;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1.44;
+    color: #323232;
+    margin-bottom: 30px;
+
+}
+
+.plotText {
+    width: 800px;
+    font-size: 18px;
+    line-height: 1.56;
+    color: #323232;
+}
+
+/*=============== similar ============= */
+
+.similarBg {
+    background-color: #fff;
+}
+
+.similar {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.similarHeading {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 2.17;
+    color: #323232;
+    margin-bottom: 19px;
+
+}
+
+.similarItems {
+    display: flex;
+}
+
+.similarItem {
+    position: relative;
+    width: 263px;
+    height: 361px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-right: 30px;
+}
+
+.similarItem:last-child {
+    margin-right: 0;
+}
+
+.similarItem__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.similarItem__layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 36px 30px 40px 30px;
+    background-color: #494949bb;
+    background: linear-gradient(0deg, rgba(20, 19, 19, 0.85), rgba(20, 19, 19, 0.85));
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.similarItem__layout:hover {
+    opacity: 1;
+}
+
+.similarItem__title {
+    width: 107px;
+    height: 58px;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.similarItem__genre {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.similarItem__type {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #FFFFFF;
+}
+
+.similarItem__year {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+
+.similarItem__plot {
+    height: 108px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.29;
+    color: #FFFFFF;
+    margin-top: 21px;
+    margin-bottom: 16px;
+}
+
+
+/*======================= footer===================== */
+
+.footerBg {
+    background-color: #111111;
+}
+
+.footer {
+    padding: 39px 0;
+}
+
+.brandTextFooter {
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.22;
+    color: #FEFEFE;
+}

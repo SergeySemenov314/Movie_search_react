@@ -15,7 +15,7 @@ function SearchResultsItem(props) {
         <div className={cl.infoTextContainer}>
           <div className={cl.topContainer}>
             <a className={cl.movieTitle} href = '/' title = {currentResult.Title} >{currentResult.Title}</a>
-            <div className={cl.rating}>IMDb {currentResult.imdbRating}</div>
+            <div className='ratingBlock'>IMDb {currentResult.imdbRating}</div>
           </div>
           <div className={cl.mediumContainer}>
             <span className={cl.type}>{currentResult.Type}</span>
