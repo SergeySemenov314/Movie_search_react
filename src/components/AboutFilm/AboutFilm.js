@@ -1,9 +1,16 @@
 import cl from './AboutFilm.module.css';
 import loupeImg from '../../images/loupe.png'
+import poster from '../../images/imagePoster.jpg';
 import similarPoster from '../../images/similar.jpg'
+import {useSelector} from 'react-redux';
+import {selectSearchResults} from '../../store/searchResultsSlice';
+
 
 
 function AboutFilm(props) {
+    const searchResults = useSelector(selectSearchResults).searchResults;
+
+
   return (
     <>
         <div className={cl.headerBg}>
@@ -19,25 +26,31 @@ function AboutFilm(props) {
         </div>
         <main>
             <div className={cl.mainBg}>
+                <img src={searchResults.Poster} alt="" className={cl.mainBgImg}/>
                 <div className={cl.mainOverlay}>
                     <div className="container">
-                        <h1 className={cl.filmTitle}>The Queen's Gambit</h1>
-                        <div className={cl.infoBox}>
-                            <div className={`ratingBlock ${cl.ratingBlockMain}`}>IMDb 8.8</div>
-                            <span className={cl.genre}>Drama</span>
-                            <span className={cl.type}>TVSeries</span>                      
-                            <span className={cl.year}>2020</span>
+                        <div className={cl.topContainer}>
+                            <h1 className={cl.filmTitle}>{searchResults.Title}</h1>
+                            <div className={cl.infoBox}>
+                                <div className={`ratingBlock ${cl.ratingBlockMain}`}>IMDb {searchResults.imdbRating}</div>
+                                <span className={cl.genre}>{searchResults.Genre}</span>
+                                <span className={cl.type}>{searchResults.Type}</span>                      
+                                <span className={cl.year}>{searchResults.Year}</span>
+                            </div>
                         </div>
+                       
                         <button className={cl.btnTrailer}>Watch</button>
-                        <p className={cl.awards}>Top Rated TV #148 | Won 2 Golden Globes. Another 12 wins & 19 nominations.</p>
+                        <p className={cl.awards}>{searchResults.Awards}</p>
                     </div>
                 </div>
             </div>
 
             <div className={cl.plotBg}>
                 <div className="container">
-                    <p className={cl.plotHeading}>Watch The Queen's Gambit on Richbee Shows</p>
-                    <p className={cl.plotText}>Nine year-old orphan Beth Harmon is quiet, sullen, and by all appearances unremarkable. That is, until she plays her first game of chess. Her senses grow sharper, her thinking clearer, and for the first time in her life she feels herself fully in control. By the age of sixteen, she's competing for the U.S. Open championship. But as Beth hones her skills on the professional circuit, the stakes get higher, her isolation grows more frightening, and the thought of escape becomes all the more tempting. Based on the book by Walter Tevis.</p>
+                    <div className={cl.plot}>
+                        <p className={cl.plotHeading}>Watch {searchResults.Title} on Richbee Shows</p>
+                        <p className={cl.plotText}>{searchResults.Plot}</p>
+                    </div>
                 </div>
             </div>
 

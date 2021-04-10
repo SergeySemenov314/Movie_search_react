@@ -54,10 +54,15 @@
 
 .mainBg {
     position: relative;
-    background: url(../../images/imagePoster.jpg) no-repeat center;
-    background-size: cover;
     background-color: black;
     height: 810px;
+}
+
+.mainBgImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .mainOverlay {
@@ -71,9 +76,12 @@
     background: linear-gradient(90.3deg, #111111 19%, rgba(17, 17, 17, 0) 99.75%);
 }
 
+.topContainer {
+    height: 434px;
+}
+
 .filmTitle {
     width: 566px;
-    height: 176px;
     font-weight: 900;
     font-size: 72px;
     line-height: 1.22;
@@ -83,7 +91,7 @@
 
 .infoBox {
     display: flex;
-    margin-bottom: 196px;
+
 }
 
 .ratingBlockMain {
@@ -155,10 +163,13 @@
     background-color: #fff;
 }
 
-.plotHeading {
-    width: 800px;
+.plot {
     padding-top: 60px;
     padding-bottom: 30px;
+}
+
+.plotHeading {
+    width: 800px;
     font-weight: 900;
     font-size: 36px;
     line-height: 1.44;

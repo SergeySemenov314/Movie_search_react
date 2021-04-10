@@ -3,7 +3,14 @@ import cl from './Search.module.css';
 import SearchResults from './SearchResults/SearchResults';
 
 
+import {useSelector, useDispatch} from 'react-redux';
+import {selectSearchResults, getSearchResults} from '../../store/searchResultsSlice';
+
+
+
 function Search() {
+  const searchResults = useSelector(selectSearchResults);
+  const dispatch = useDispatch();
 
   const [currentResultObj, setCurrentResultObj] = useState();
 
@@ -11,7 +18,8 @@ function Search() {
 
   const onChangeInput = (evt) => {
     const inputValue = searchInput.current.value;
-    // console.log(inputValue);
+  
+    console.log(searchResults);
 
     fetch(`http://www.omdbapi.com/?s=${inputValue}&apikey=46e3b29b`)
     .then(response => response.json() )
@@ -30,6 +38,7 @@ function Search() {
         .then(response => response.json() )
         .then (currentResult => {
           setCurrentResultObj(currentResult);
+          dispatch(getSearchResults(currentResult));
         })
       }
     })

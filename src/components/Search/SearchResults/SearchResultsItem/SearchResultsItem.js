@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import cl from './SearchResultsItem.module.css';
 // import poster from '../../../../images/searchPoster.jpg'
 
@@ -9,12 +10,12 @@ function SearchResultsItem(props) {
   return (
     <>
       <div className={cl.resultItem}>
-        <a className={cl.posterWrapper} href = '/'>
+        <Link className={cl.posterWrapper} to = '/about'>
           <img src={currentResult.Poster} alt="Poster" className={cl.posterImg}/>
-        </a>
+        </Link>
         <div className={cl.infoTextContainer}>
           <div className={cl.topContainer}>
-            <a className={cl.movieTitle} href = '/' title = {currentResult.Title} >{currentResult.Title}</a>
+            <Link className={cl.movieTitle} to = '/about' title = {currentResult.Title} >{currentResult.Title}</Link>
             <div className='ratingBlock'>IMDb {currentResult.imdbRating}</div>
           </div>
           <div className={cl.mediumContainer}>
