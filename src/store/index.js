@@ -1,11 +1,18 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import searchResultsReducer from './searchResultsSlice';
-// import cartReducer from './cartSlice';
+
+const middleware = getDefaultMiddleware({
+    immutableCheck: false,
+    serializableCheck: false,
+    thunk: true,
+});
+
 
 export default configureStore({
     reducer:{
         searchResults: searchResultsReducer,
-        // cart: cartReducer,
-
+        middleware: middleware,
+        devTools: true,
+     
     }
 })

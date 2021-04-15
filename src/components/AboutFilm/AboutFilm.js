@@ -1,6 +1,6 @@
 import cl from './AboutFilm.module.css';
 import loupeImg from '../../images/loupe.png'
-import poster from '../../images/imagePoster.jpg';
+// import poster from '../../images/imagePoster.jpg';
 import similarPoster from '../../images/similar.jpg'
 import {useSelector} from 'react-redux';
 import {selectSearchResults} from '../../store/searchResultsSlice';
@@ -8,6 +8,7 @@ import {selectSearchResults} from '../../store/searchResultsSlice';
 
 
 function AboutFilm(props) {
+     
     const searchResults = useSelector(selectSearchResults).searchResults;
 
 

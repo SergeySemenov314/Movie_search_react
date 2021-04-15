@@ -1,10 +1,10 @@
-import React, { useRef, useState  } from 'react';
+import React, { useRef } from 'react';
 import cl from './Search.module.css';
 import SearchResults from './SearchResults/SearchResults';
 
 
 import {useSelector, useDispatch} from 'react-redux';
-import {selectSearchResults, getSearchResults} from '../../store/searchResultsSlice';
+import {selectSearchResults, fetchSearchResults} from '../../store/searchResultsSlice';
 
 
 
@@ -12,36 +12,12 @@ function Search() {
   const searchResults = useSelector(selectSearchResults);
   const dispatch = useDispatch();
 
-  const [currentResultObj, setCurrentResultObj] = useState();
-
   const searchInput = useRef();
 
   const onChangeInput = (evt) => {
     const inputValue = searchInput.current.value;
-  
-    console.log(searchResults);
-
-    fetch(`http://www.omdbapi.com/?s=${inputValue}&apikey=46e3b29b`)
-    .then(response => response.json() )
-    .then(response => {   
-      if (response.Response === 'True') {
-        console.log(response.Search[0].imdbID);
-        let searchFilmId = response.Search[0].imdbID;
-        return searchFilmId;
-      } else {
-        setCurrentResultObj();
-      }   
-    })
-    .then((searchFilmId) => {
-      if (searchFilmId) {       
-        fetch(`http://www.omdbapi.com/?i=${searchFilmId}&apikey=46e3b29b`)
-        .then(response => response.json() )
-        .then (currentResult => {
-          setCurrentResultObj(currentResult);
-          dispatch(getSearchResults(currentResult));
-        })
-      }
-    })
+    
+    dispatch(fetchSearchResults(inputValue));
 
   }
 
@@ -58,8 +34,8 @@ function Search() {
                     <button className={cl.formButton}>Search</button>
                 </form>              
             </div>
-            {currentResultObj &&
-              <SearchResults currentResult = {currentResultObj} />
+            {searchResults.searchResults &&
+              <SearchResults currentResult = {searchResults.searchResults} />
             }
             
            
