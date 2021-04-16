@@ -4,12 +4,24 @@ import loupeImg from '../../images/loupe.png'
 import similarPoster from '../../images/similar.jpg'
 import {useSelector} from 'react-redux';
 import {selectSearchResults} from '../../store/searchResultsSlice';
+import { Link } from 'react-router-dom';
+
 
 
 
 function AboutFilm(props) {
      
-    const searchResults = useSelector(selectSearchResults).searchResults;
+    const searchResults = useSelector(selectSearchResults);
+
+    let bgImgName = searchResults.searchResults.backdrop_path;
+    let bgImgURL = `https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${bgImgName}`;
+    let title = searchResults.searchResults.title;
+    let imdbRating = searchResults.additionalInfo.imdbRating;
+    let type = searchResults.additionalInfo.type;
+    let genre = searchResults.searchResults.genres[0].name;
+    let year = searchResults.additionalInfo.year;
+    let awards = searchResults.additionalInfo.awards;
+    let overview = searchResults.searchResults.overview;
 
 
   return (
@@ -17,7 +29,7 @@ function AboutFilm(props) {
         <div className={cl.headerBg}>
             <div className="container">
                 <header className={cl.header}>
-                    <div className={cl.brandContainer}><a href="/" className={cl.brandText}>Richbee Shows</a></div>
+                    <div className={cl.brandContainer}><Link to="/" className={cl.brandText}>Richbee Shows</Link></div>
                     <form action="" className={cl.searchForm}>
                         <img src={loupeImg} alt="" className={cl.searchImg}/>
                         <input type="text" className={cl.searchInput} placeholder = 'Type here smth...'/>
@@ -27,21 +39,21 @@ function AboutFilm(props) {
         </div>
         <main>
             <div className={cl.mainBg}>
-                <img src={searchResults.Poster} alt="" className={cl.mainBgImg}/>
+                <img src={bgImgURL} alt="" className={cl.mainBgImg}/>
                 <div className={cl.mainOverlay}>
                     <div className="container">
                         <div className={cl.topContainer}>
-                            <h1 className={cl.filmTitle}>{searchResults.Title}</h1>
+                            <h1 className={cl.filmTitle}>{title}</h1>
                             <div className={cl.infoBox}>
-                                <div className={`ratingBlock ${cl.ratingBlockMain}`}>IMDb {searchResults.imdbRating}</div>
-                                <span className={cl.genre}>{searchResults.Genre}</span>
-                                <span className={cl.type}>{searchResults.Type}</span>                      
-                                <span className={cl.year}>{searchResults.Year}</span>
+                                <div className={`ratingBlock ${cl.ratingBlockMain}`}>IMDb {imdbRating}</div>
+                                <span className={cl.genre}>{genre}</span>
+                                <span className={cl.type}>{type}</span>                      
+                                <span className={cl.year}>{year}</span>
                             </div>
                         </div>
                        
                         <button className={cl.btnTrailer}>Watch</button>
-                        <p className={cl.awards}>{searchResults.Awards}</p>
+                        <p className={cl.awards}>{awards}</p>
                     </div>
                 </div>
             </div>
@@ -49,8 +61,8 @@ function AboutFilm(props) {
             <div className={cl.plotBg}>
                 <div className="container">
                     <div className={cl.plot}>
-                        <p className={cl.plotHeading}>Watch {searchResults.Title} on Richbee Shows</p>
-                        <p className={cl.plotText}>{searchResults.Plot}</p>
+                        <p className={cl.plotHeading}>Watch {title} on Richbee Shows</p>
+                        <p className={cl.plotText}>{overview}</p>
                     </div>
                 </div>
             </div>

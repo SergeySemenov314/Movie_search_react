@@ -46,6 +46,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-right: 16px;
 }
 
 .movieTitle:hover {
@@ -88,6 +89,10 @@
 }
 
 .type {}
+
+.type:first-letter {
+    text-transform: uppercase;
+}
 
 .genre {}
 

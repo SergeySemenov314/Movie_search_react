@@ -11,14 +11,18 @@ import {selectSearchResults, fetchSearchResults} from '../../store/searchResults
 function Search() {
   const searchResults = useSelector(selectSearchResults);
   const dispatch = useDispatch();
-
   const searchInput = useRef();
 
   const onChangeInput = (evt) => {
     const inputValue = searchInput.current.value;
-    
     dispatch(fetchSearchResults(inputValue));
+  }
 
+  const hasContent = (obj) => {
+    for (let key in obj) {
+      return true;
+    }
+    return false;
   }
 
   return (
@@ -34,8 +38,8 @@ function Search() {
                     <button className={cl.formButton}>Search</button>
                 </form>              
             </div>
-            {searchResults.searchResults &&
-              <SearchResults currentResult = {searchResults.searchResults} />
+            {hasContent(searchResults.searchResults) &&
+              <SearchResults currentResult = {searchResults} />
             }
             
            
