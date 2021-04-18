@@ -1,10 +1,11 @@
 import cl from './AboutFilm.module.css';
 import loupeImg from '../../images/loupe.png'
 // import poster from '../../images/imagePoster.jpg';
-import similarPoster from '../../images/similar.jpg'
+
 import {useSelector} from 'react-redux';
 import {selectSearchResults} from '../../store/searchResultsSlice';
 import { Link } from 'react-router-dom';
+import SilimarFilms from './SimilarFilms/SimilarFilms';
 
 
 
@@ -67,52 +68,8 @@ function AboutFilm(props) {
                 </div>
             </div>
 
-            <div className={cl.similarBg}>
-                <div className="container">
-                    <div className={cl.similar}>
-                        <p className={cl.similarHeading}>You may also like</p>
-                        <div className={cl.similarItems}>
-                            <a href="/" className={cl.similarItem}><img src={similarPoster} alt="" className={cl.similarItem__img}/>
-                                <div className={cl.similarItem__layout}>
-                                    <h5 className={cl.similarItem__title}>Peaky Blinders</h5>
-                                    <span className={cl.similarItem__genre}>Crime, Drama</span>
-                                    <span className={cl.similarItem__type}>TVSeries </span><span className={cl.similarItem__year}>2013</span>  
-                                    <p className={cl.similarItem__plot}>A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.</p>
-                                    <div className='ratingBlock' >IMDb 8.8</div>                                  
-                                </div>
-                            </a>
-                            <a href="/" className={cl.similarItem}><img src={similarPoster} alt="" className={cl.similarItem__img}/>
-                                <div className={cl.similarItem__layout}>
-                                    <h5 className={cl.similarItem__title}>Peaky Blinders</h5>
-                                    <span className={cl.similarItem__genre}>Crime, Drama</span>
-                                    <span className={cl.similarItem__type}>TVSeries </span><span className={cl.similarItem__year}>2013</span>  
-                                    <p className={cl.similarItem__plot}>A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.</p>
-                                    <div className='ratingBlock' >IMDb 8.8</div>                                  
-                                </div>
-                            </a>
-                            <a href="/" className={cl.similarItem}><img src={similarPoster} alt="" className={cl.similarItem__img}/>
-                                <div className={cl.similarItem__layout}>
-                                    <h5 className={cl.similarItem__title}>Peaky Blinders</h5>
-                                    <span className={cl.similarItem__genre}>Crime, Drama</span>
-                                    <span className={cl.similarItem__type}>TVSeries </span><span className={cl.similarItem__year}>2013</span>  
-                                    <p className={cl.similarItem__plot}>A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.</p>
-                                    <div className='ratingBlock' >IMDb 8.8</div>                                  
-                                </div>
-                            </a>
-                            <a href="/" className={cl.similarItem}><img src={similarPoster} alt="" className={cl.similarItem__img}/>
-                                <div className={cl.similarItem__layout}>
-                                    <h5 className={cl.similarItem__title}>Peaky Blinders</h5>
-                                    <span className={cl.similarItem__genre}>Crime, Drama</span>
-                                    <span className={cl.similarItem__type}>TVSeries </span><span className={cl.similarItem__year}>2013</span>  
-                                    <p className={cl.similarItem__plot}>A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.</p>
-                                    <div className='ratingBlock' >IMDb 8.8</div>                                  
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
+            <SilimarFilms />
+
         </main>
 
         <div className={cl.footerBg}>

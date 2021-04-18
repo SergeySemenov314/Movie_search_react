@@ -1,0 +1,23 @@
+/*=============== similar ============= */
+
+.similarBg {
+    background-color: #fff;
+}
+
+.similar {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.similarHeading {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 2.17;
+    color: #323232;
+    margin-bottom: 19px;
+
+}
+
+.similarItems {
+    display: flex;
+}

@@ -9,7 +9,7 @@ export const fetchSearchResults = (searchValue) => {
             .then(response => {   
                 if (response.total_results > 0 ) {
                     let idTMDB = response.results[0].id;
-                    dispatch(setIdTMDB(idTMDB));
+                    dispatch(setIdTMDB(idTMDB)); 
                     return idTMDB; 
                 } else {
                     dispatch(setSearchResults({}));
@@ -19,14 +19,14 @@ export const fetchSearchResults = (searchValue) => {
             })
             .then((idTMDB) => {
                 if (idTMDB) {       
-                    fetch(`https://api.themoviedb.org/3/movie/${idTMDB}?api_key=${env.apiKeyTMDB}&query=${searchValue}`)
+                    fetch(`https://api.themoviedb.org/3/movie/${idTMDB}?api_key=${env.apiKeyTMDB}`)
                     .then(response => response.json() )
                     .then (currentResult => {  
                         let idImdb = currentResult.imdb_id;
                         dispatch(setSearchResults(currentResult));
                         dispatch(setIdImdb(idImdb));
                         dispatch(fetchAdditionalInfo(idImdb));      
-                    })
+                    }) 
                 }
             }) 
     } 
@@ -49,6 +49,18 @@ export const fetchAdditionalInfo = (idImdb) => {
                 year: year
             }
             dispatch(setAdditionalInfo(additionalInfo));
+            
+        })
+    }
+}
+
+export const fetchSimilarFilms = (idTMDB) => {         
+    return(dispatch) => {
+        fetch(`https://api.themoviedb.org/3/movie/${idTMDB}/similar?api_key=${env.apiKeyTMDB}`)
+        .then(response => response.json() )
+        .then (similarArr => {  
+            let reducedSimilarArr = similarArr.results.slice(0, 4);
+            dispatch(setSimilarFilmsArr(reducedSimilarArr));
         })
     }
 }
@@ -60,6 +72,7 @@ export const searchResultsSlice = createSlice({
         idImdb: '',
         searchResults: {},
         additionalInfo: {},
+        similarFilmsArr:[]
     },
     reducers: {
         setSearchResults: (state, searchValue) =>{   
@@ -73,12 +86,16 @@ export const searchResultsSlice = createSlice({
         },
         setAdditionalInfo: (state, additionalInfo) =>{   
             state.additionalInfo = additionalInfo.payload;
+        },
+        setSimilarFilmsArr: (state, similarFilmsArr) =>{   
+            state.similarFilmsArr = similarFilmsArr.payload;
         }
          
     },
 
 });
 
-export const {setSearchResults, setIdTMDB, setIdImdb, setAdditionalInfo} = searchResultsSlice.actions;
+export const {setSearchResults, setIdTMDB, setIdImdb, setAdditionalInfo, setSimilarFilmsArr} = searchResultsSlice.actions;
 export const selectSearchResults = state => state.searchResults;
+export const selectSimilarFilms = state => state.searchResults.similarFilmsArr;
 export default searchResultsSlice.reducer;  

@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import cl from './SearchResultsItem.module.css';
 // import poster from '../../../../images/searchPoster.jpg'
+import {fetchSimilarFilms} from '../../../../store/searchResultsSlice';
+import { useDispatch } from 'react-redux';
 
 
 function SearchResultsItem(props) {
+  const dispatch = useDispatch();
 
   const currentResult = props.currentResult;
 
@@ -16,11 +19,16 @@ function SearchResultsItem(props) {
   let year = currentResult.additionalInfo.year;
   let awards = currentResult.additionalInfo.awards;
 
+  const clickHandler = () => {
+    let idTMDB = currentResult.idTMDB;
+    dispatch(fetchSimilarFilms(idTMDB));  
+  }
+
 
   return (
     <>
       <div className={cl.resultItem}>
-        <Link className={cl.posterWrapper} to = '/about'>
+        <Link className={cl.posterWrapper} to = '/about' onClick = {clickHandler}>
           <img src={posterURL} alt="Poster" className={cl.posterImg}/>
         </Link>
         <div className={cl.infoTextContainer}>
