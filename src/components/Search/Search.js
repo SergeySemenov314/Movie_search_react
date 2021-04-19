@@ -25,10 +25,13 @@ function Search() {
     return false;
   }
 
+
   return (
     <>
     <div className={cl.bg}>
-        {/* <iframe className = {cl.videoBg} src="https://www.youtube.com/embed/gA0nQyDZR4A?controls=0&showinfo=0&rel=0&autoplay=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>    */}
+        <iframe className = {cl.videoBg} src="https://www.youtube.com/embed/gA0nQyDZR4A?controls=0&showinfo=0&rel=0&autoplay=1&mute=1" title="YouTube video player" frameBorder="0"  allowFullScreen></iframe>   
+        <div className={cl.videoBgLauout}></div>
+       
         <div className='container'>
             <div className={cl.search}>
                 <h1 className={cl.heading}>Unlimited movies, TV shows, and more.</h1>

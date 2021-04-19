@@ -1,22 +1,33 @@
 .bg {
     position: fixed;
-    z-index: -1;
+    z-index: -2;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     background-color: rgb(68, 68, 68);
-    overflow-y: scroll;
+    overflow: hidden;
 }
 
-.videoBg {
+.videoBgLauout {
     position: absolute;
     z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.445);
+}
+
+.videoBg {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
+    transform:scale(1.4);
 }
 
 .search {
@@ -72,11 +83,16 @@
 .formButton {
     width: 121px;
     height: 50px;
-    background: #4EA7F9;
+    background-color: #4EA7F9;
     border-radius: 0px 30px 30px 0px;
     text-align: center;
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     font-size: 18px;
     color: #FEFEFE;
+    transition: background-color .25s ease-in;
+}
+
+.formButton:hover {
+    background-color: #188dfb;
 }
