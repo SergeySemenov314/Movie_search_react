@@ -27,6 +27,7 @@ export const fetchSearchResults = (searchValue) => {
                         dispatch(setIdImdb(idImdb));
                         dispatch(fetchAdditionalInfo(idImdb));      
                     }) 
+
                 }
             }) 
     } 
@@ -65,6 +66,19 @@ export const fetchSimilarFilms = (idTMDB) => {
     }
 }
 
+export const fetchTrailerKey = (idTMDB) => {         
+    return(dispatch) => {
+         fetch(`https://api.themoviedb.org/3/movie/${idTMDB}/videos?api_key=${env.apiKeyTMDB}`)
+        .then(response => response.json() )
+        .then (response => {  
+            let videosArr = response.results;
+            let trailerKey = videosArr[0].key ? videosArr[0].key : '';
+            console.log(trailerKey)
+            dispatch(setTrailerKey(trailerKey));
+        }) 
+    }
+}
+
 export const searchResultsSlice = createSlice({
     name: 'searchResults',
     initialState:{
@@ -89,13 +103,16 @@ export const searchResultsSlice = createSlice({
         },
         setSimilarFilmsArr: (state, similarFilmsArr) =>{   
             state.similarFilmsArr = similarFilmsArr.payload;
+        },
+        setTrailerKey: (state, currentTrailerKey) =>{   
+            state.additionalInfo.trailerKey = currentTrailerKey.payload;
         }
          
     },
 
 });
 
-export const {setSearchResults, setIdTMDB, setIdImdb, setAdditionalInfo, setSimilarFilmsArr} = searchResultsSlice.actions;
+export const {setSearchResults, setIdTMDB, setIdImdb, setAdditionalInfo, setSimilarFilmsArr, setTrailerKey} = searchResultsSlice.actions;
 export const selectSearchResults = state => state.searchResults;
 export const selectSimilarFilms = state => state.searchResults.similarFilmsArr;
 export default searchResultsSlice.reducer;  

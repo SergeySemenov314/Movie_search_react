@@ -48,6 +48,7 @@
     color: #FEFEFE;
     margin-bottom: 40px;
 }
+    
 
 .subHeading {
     font-family: Montserrat, sans-serif;
@@ -96,3 +97,35 @@
 .formButton:hover {
     background-color: #188dfb;
 }
+
+@media(max-width: 1200px) {
+    .heading {
+        font-size: 57px;
+        margin-bottom: 25px;
+    }
+    .search {
+        padding-top: 150px;
+    }
+
+    .subHeading {
+        font-size: 31px;
+        margin-bottom: 62px;
+    }
+  
+ 
+ }
+ 
+ @media(max-width: 992px) {
+
+  
+    
+ }
+ 
+ @media(max-width: 767px) {
+  
+    
+ }
+ 
+ @media(max-width: 359px) {
+   
+ }

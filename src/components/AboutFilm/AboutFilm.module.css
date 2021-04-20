@@ -202,3 +202,11 @@
     line-height: 1.22;
     color: #FEFEFE;
 }
+
+/*======================= modal ===================== */
+.modalWrapper {
+    padding: 65px;
+    background-color: rgb(8, 44, 75);
+    border-radius: 13px;
+
+}

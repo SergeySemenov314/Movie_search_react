@@ -6,11 +6,15 @@ import {useSelector} from 'react-redux';
 import {selectSearchResults} from '../../store/searchResultsSlice';
 import { Link } from 'react-router-dom';
 import SilimarFilms from './SimilarFilms/SimilarFilms';
+import { useState } from 'react';
+import Modal from '../Modal/Modal';
 
 
 
 
 function AboutFilm(props) {
+
+    const [modalActive, setModalActive] = useState(false);
      
     const searchResults = useSelector(selectSearchResults);
 
@@ -53,7 +57,7 @@ function AboutFilm(props) {
                             </div>
                         </div>
                        
-                        <button className={cl.btnTrailer}>Watch</button>
+                        <button className={cl.btnTrailer} onClick = {() => setModalActive(true)}>Watch</button>
                         <p className={cl.awards}>{awards}</p>
                     </div>
                 </div>
@@ -79,6 +83,10 @@ function AboutFilm(props) {
                 </footer>
             </div>
         </div>
+
+        <Modal active = {modalActive} setActive = {setModalActive} >
+            <p className = {cl.modalWrapper}> Это модалка!!! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam sed pariatur consequatur.  Nobis, dicta quo ducimus fuga reiciendis perferendis optio nam vitae porro! Dignissimos, nostrum perferendis qui nam ipsam illum consequatur labore id vitae repellendus laudantium earum consectetur eos sint enim, modi fuga! Ducimus iusto repellendus provident, architecto rerum laborum unde at quidem harum pariatur molestias explicabo itaque exercitationem eligendi dicta nostrum commodi corporis optio, nemo quod neque id soluta alias? Eius quo tempora dolorum eligendi enim beatae accusamus illum officiis nisi libero dolores ducimus excepturi maiores aperiam totam, vitae pariatur delectus reprehenderit expedita? Totam enim fugit doloremque nobis perferendis?</p>
+        </Modal>
    
     </>
   );

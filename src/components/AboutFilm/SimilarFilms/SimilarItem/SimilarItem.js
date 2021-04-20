@@ -10,9 +10,21 @@ function SimilarItem(props) {
         return year;
     }
 
+    const cutTitle = (title) => {
+        let currentTitle = title;
+        let maxLength = 27;
+
+        if (currentTitle.length > maxLength) {
+            currentTitle = currentTitle.slice(0, maxLength) + "...";
+        }
+
+        return currentTitle;
+    }
+
     let fimlObj = props.film;
     let poster = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${fimlObj.poster_path}`;
     let title = fimlObj.title;
+    let shortTitle = cutTitle(fimlObj.title);
     let genreIds = fimlObj.genre_ids;
     let year = getYear(fimlObj.release_date);
     let plot = fimlObj.overview;
@@ -23,7 +35,7 @@ function SimilarItem(props) {
         <>
             <Link to="/" className={cl.similarItem}><img src={poster} alt="Poster" className={cl.similarItem__img}/>
                 <div className={cl.similarItem__layout}>
-                    <h5 className={cl.similarItem__title}>{title}</h5>
+                    <h5 className={cl.similarItem__title} title = {title}>{shortTitle}</h5>
                     <span className={cl.similarItem__genre}>Crime, Drama</span>
                     <span className={cl.similarItem__type}>Movie </span><span className={cl.similarItem__year}>{year}</span>  
                     <p className={cl.similarItem__plot}>{plot}</p>

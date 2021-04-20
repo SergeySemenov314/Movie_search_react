@@ -1,0 +1,148 @@
+.modal {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(128, 128, 128, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s ease-in;
+
+}
+
+.modalActive {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+.modal__content {
+    max-height: 95%;
+    max-width: 95%;
+    transform: scale(0.5);
+    transition: transform 0.5s ease-in;
+
+
+}
+
+.modal__contentActive {
+    transform: scale(1);
+}
+
+
+
+.modal__close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.7;
+    -webkit-transition: opacity 0.3s ease-in;
+    transition: opacity 0.3s ease-in;
+}
+
+
+.modal__close:hover {
+    opacity: 1;
+}
+
+.modal__close:before,
+.modal__close:after {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 4px;
+    background-color: white;
+
+}
+
+.modal__close:before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.modal__close:after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+
+.video-modal {
+    display: none;
+}
+
+.video-modal__iframe {
+    width: 700px;
+    height: 395px;
+
+
+}
+
+
+@media(max-width: 992px) {
+
+    .video-modal__iframe {
+        width: 629px;
+
+    }
+
+    .modal-wrapper {
+        padding: 48px;
+
+    }
+
+    .modal__close:before,
+    .modal__close:after {
+        height: 26px;
+    }
+
+    .modal__close {
+        right: 12px;
+        top: 15px;
+    }
+
+}
+
+
+
+
+@media(max-width: 767px) {
+
+    .modal__close:before,
+    .modal__close:after {
+        height: 23px;
+    }
+
+    .modal__close {
+        right: 8px;
+    }
+
+    .video-modal__iframe {
+        width: 311px;
+        height: 330px;
+    }
+
+    .modal-wrapper {
+        padding: 52px 15px;
+    }
+
+
+
+}
+
+@media(max-width: 359px) {
+    .video-modal__iframe {
+        width: 273px;
+        height: 277px;
+    }
+
+}
