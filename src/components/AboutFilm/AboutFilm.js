@@ -11,7 +11,6 @@ import Modal from '../Modal/Modal';
 
 
 
-
 function AboutFilm(props) {
 
     const [modalActive, setModalActive] = useState(false);
@@ -27,6 +26,7 @@ function AboutFilm(props) {
     let year = searchResults.additionalInfo.year;
     let awards = searchResults.additionalInfo.awards;
     let overview = searchResults.searchResults.overview;
+    let trailerKey = searchResults.additionalInfo.trailerKey;
 
 
   return (
@@ -85,7 +85,10 @@ function AboutFilm(props) {
         </div>
 
         <Modal active = {modalActive} setActive = {setModalActive} >
-            <p className = {cl.modalWrapper}> Это модалка!!! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam sed pariatur consequatur.  Nobis, dicta quo ducimus fuga reiciendis perferendis optio nam vitae porro! Dignissimos, nostrum perferendis qui nam ipsam illum consequatur labore id vitae repellendus laudantium earum consectetur eos sint enim, modi fuga! Ducimus iusto repellendus provident, architecto rerum laborum unde at quidem harum pariatur molestias explicabo itaque exercitationem eligendi dicta nostrum commodi corporis optio, nemo quod neque id soluta alias? Eius quo tempora dolorum eligendi enim beatae accusamus illum officiis nisi libero dolores ducimus excepturi maiores aperiam totam, vitae pariatur delectus reprehenderit expedita? Totam enim fugit doloremque nobis perferendis?</p>
+            <div className = {cl.modalWrapper}>
+                <iframe className ={cl.trailerIframe} src={modalActive ? `https://www.youtube.com/embed/${trailerKey}` : ''} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
         </Modal>
    
     </>

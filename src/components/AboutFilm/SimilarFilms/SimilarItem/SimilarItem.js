@@ -1,9 +1,12 @@
 import cl from './SimilarItem.module.css';
 import { Link } from 'react-router-dom';
 import similarPoster from '../../../../images/similar.jpg'
+import { useDispatch } from 'react-redux';
+import {fetchSearchResults, fetchSimilarFilms, fetchTrailerKey} from '../../../../store/searchResultsSlice';
 
 
 function SimilarItem(props) {
+    const dispatch = useDispatch();
 
     const getYear = (dateStr) => {
         let year = dateStr.slice(0, 4);
@@ -12,7 +15,7 @@ function SimilarItem(props) {
 
     const cutTitle = (title) => {
         let currentTitle = title;
-        let maxLength = 27;
+        let maxLength = 22;
 
         if (currentTitle.length > maxLength) {
             currentTitle = currentTitle.slice(0, maxLength) + "...";
@@ -29,11 +32,26 @@ function SimilarItem(props) {
     let year = getYear(fimlObj.release_date);
     let plot = fimlObj.overview;
     let rating = fimlObj.vote_average;
+
+
+    
+    const clickHandler = () => {
+        let filmTitle = fimlObj.title;
+        let idTMDB = fimlObj.id;
+        dispatch(fetchSearchResults(filmTitle));
+        dispatch(fetchSimilarFilms(idTMDB));  
+        dispatch(fetchTrailerKey(idTMDB));  
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 1000)
+        
+    }
     
 
     return (
         <>
-            <Link to="/" className={cl.similarItem}><img src={poster} alt="Poster" className={cl.similarItem__img}/>
+            <Link to = '/about' className={cl.similarItem} onClick = {clickHandler} >
+                <img src={poster} alt="Poster" className={cl.similarItem__img}  />
                 <div className={cl.similarItem__layout}>
                     <h5 className={cl.similarItem__title} title = {title}>{shortTitle}</h5>
                     <span className={cl.similarItem__genre}>Crime, Drama</span>

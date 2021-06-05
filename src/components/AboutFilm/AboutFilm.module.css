@@ -206,7 +206,45 @@
 /*======================= modal ===================== */
 .modalWrapper {
     padding: 65px;
-    background-color: rgb(8, 44, 75);
+    background-color: rgb(24, 24, 24);
+    /* background-color: rgb(8, 44, 75); */
     border-radius: 13px;
 
+}
+
+.trailerIframe {
+    width: 1100px;
+    height: 700px;
+}
+
+@media (max-width: 1320px) {
+
+    .modalWrapper {
+        padding: 48px;
+    }
+
+    .trailerIframe {
+        width: 629px;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+    .modalWrapper {
+        padding: 52px 15px;
+    }
+
+    .trailerIframe {
+        width: 311px;
+        height: 330px;
+    }
+
+}
+
+@media (max-width: 359px) {
+    .trailerIframe {
+        width: 273px;
+        height: 277px;
+    }
 }

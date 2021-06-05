@@ -61,6 +61,7 @@ export const fetchSimilarFilms = (idTMDB) => {
         .then(response => response.json() )
         .then (similarArr => {  
             let reducedSimilarArr = similarArr.results.slice(0, 4);
+            console.log(reducedSimilarArr);
             dispatch(setSimilarFilmsArr(reducedSimilarArr));
         })
     }

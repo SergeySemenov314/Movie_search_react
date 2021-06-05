@@ -20,6 +20,7 @@ function SearchResultsItem(props) {
   let awards = currentResult.additionalInfo.awards;
 
   const clickHandler = () => {
+  
     let idTMDB = currentResult.idTMDB;
     dispatch(fetchSimilarFilms(idTMDB));  
     dispatch(fetchTrailerKey(idTMDB));  
