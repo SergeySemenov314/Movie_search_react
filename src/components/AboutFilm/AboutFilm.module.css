@@ -6,7 +6,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 0;
+    /* если форму поиска оставлять, то:
+    padding: 25px 0; */
+    padding: 35px 0;
 }
 
 .brandContainer {}
@@ -24,6 +26,7 @@
 
 .searchForm {
     position: relative;
+    display: none;
 }
 
 .searchImg {

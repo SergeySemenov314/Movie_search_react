@@ -36,7 +36,7 @@ function SearchResultsItem(props) {
         <div className={cl.infoTextContainer}>
           <div className={cl.topContainer}>
             <Link className={cl.movieTitle} to = '/about' title = {title} >{title}</Link>
-            <div className='ratingBlock'>IMDb {imdbRating}</div>
+            <div className={cl.ratingBlockSearch + ' ratingBlock'}>IMDb {imdbRating}</div>
           </div>
           <div className={cl.mediumContainer}>
             <span className={cl.type}>{type}</span>

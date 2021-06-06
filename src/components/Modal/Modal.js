@@ -1,8 +1,15 @@
 import cl from './Modal.css';
+import {selectSearchResults} from '../../store/searchResultsSlice';
+import {useSelector} from 'react-redux';
 
 
 
 function Modal({active, setActive, children}) {
+
+    const searchResults = useSelector(selectSearchResults);
+
+    // let trailerKey = searchResults.additionalInfo.trailerKey;
+
   return (
     <>
     <div className={active ? 'modal modalActive' : 'modal'} onClick = {() => setActive(false)}>

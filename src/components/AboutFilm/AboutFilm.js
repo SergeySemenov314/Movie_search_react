@@ -26,7 +26,8 @@ function AboutFilm(props) {
     let year = searchResults.additionalInfo.year;
     let awards = searchResults.additionalInfo.awards;
     let overview = searchResults.searchResults.overview;
-    let trailerKey = searchResults.additionalInfo.trailerKey;
+    let trailerKey = searchResults.trailerKey;
+
 
 
   return (
@@ -86,7 +87,7 @@ function AboutFilm(props) {
 
         <Modal active = {modalActive} setActive = {setModalActive} >
             <div className = {cl.modalWrapper}>
-                <iframe className ={cl.trailerIframe} src={modalActive ? `https://www.youtube.com/embed/${trailerKey}` : ''} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe className ={cl.trailerIframe} src={modalActive ? `https://www.youtube.com/embed/${trailerKey}` : ''}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             
         </Modal>

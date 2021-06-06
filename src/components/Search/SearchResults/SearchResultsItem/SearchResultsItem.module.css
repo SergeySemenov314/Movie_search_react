@@ -103,3 +103,29 @@
     line-height: 1.25;
     color: #FBFBFB;
 }
+
+
+@media(max-width: 767px) {
+    .resultItem {
+        width: 100%;
+    }
+
+    .infoTextContainer {
+        width: 186px;
+
+    }
+
+    .movieTitle {
+        font-size: 19px;
+        margin-right: 0;
+    }
+
+    .ratingBlockSearch {
+        display: none;
+        /* width: 0; */
+    }
+
+
+}
+
+@media(max-width: 359px) {}

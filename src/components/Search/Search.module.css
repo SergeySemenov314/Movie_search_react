@@ -27,7 +27,7 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    transform:scale(1.4);
+    transform: scale(1.4);
 }
 
 .search {
@@ -48,7 +48,7 @@
     color: #FEFEFE;
     margin-bottom: 40px;
 }
-    
+
 
 .subHeading {
     font-family: Montserrat, sans-serif;
@@ -103,6 +103,7 @@
         font-size: 57px;
         margin-bottom: 25px;
     }
+
     .search {
         padding-top: 150px;
     }
@@ -111,21 +112,45 @@
         font-size: 31px;
         margin-bottom: 62px;
     }
-  
- 
- }
- 
- @media(max-width: 992px) {
 
-  
-    
- }
- 
- @media(max-width: 767px) {
-  
-    
- }
- 
- @media(max-width: 359px) {
-   
- }
+
+}
+
+@media(max-width: 992px) {}
+
+@media(max-width: 767px) {
+
+    .heading {
+        font-size: 30px;
+        margin-bottom: 13px;
+    }
+
+    .search {
+        padding-top: 50px;
+    }
+
+    .subHeading {
+        font-size: 21px;
+    }
+
+    .input {
+        width: 251px;
+        font-size: 17px;
+    }
+
+
+    .input::placeholder {
+        font-size: 17px;
+    }
+
+    .formButton {
+        width: 78px;
+        font-size: 16px;
+    }
+
+
+
+
+}
+
+@media(max-width: 359px) {}
