@@ -32,8 +32,8 @@ function AboutFilm(props) {
 
     return (
         <>
-            {Object.keys(searchResults.searchResults).length &&
-            Object.keys(searchResults.additionalInfo).length ? (
+            {Object.keys(searchResults.searchResults).length
+                ? (
                 <>
                     <div className={cl.headerBg}>
                         <div className="container">
