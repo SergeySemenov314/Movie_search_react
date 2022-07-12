@@ -60,8 +60,10 @@ function AboutFilm(props) {
                         {trailerKey &&
                             <button className={cl.btnTrailer} onClick = {() => setModalActive(true)}>Watch</button>
                         }
+                        {awards !== 'N/A' &&
+                            <p className={`${cl.awards} ${!trailerKey ? cl.awardsMt : ''}`}>{awards}</p>
+                        }
                         
-                        <p className={`${cl.awards} ${!trailerKey ? cl.awardsMt : ''}`}>{awards}</p>
                     </div>
                 </div>
             </div>

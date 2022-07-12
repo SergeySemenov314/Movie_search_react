@@ -15,7 +15,7 @@ function SimilarItem(props) {
 
     const cutTitle = (title) => {
         let currentTitle = title;
-        let maxLength = 22;
+        let maxLength = 20;
 
         if (currentTitle.length > maxLength) {
             currentTitle = currentTitle.slice(0, maxLength) + "...";
@@ -31,7 +31,7 @@ function SimilarItem(props) {
     let genreIds = fimlObj.genre_ids;
     let year = getYear(fimlObj.release_date);
     let plot = fimlObj.overview;
-    let rating = fimlObj.vote_average;
+    let rating = Number(fimlObj.vote_average).toFixed(1);
 
 
     
