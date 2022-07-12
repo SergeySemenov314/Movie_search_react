@@ -80,6 +80,12 @@ export const fetchTrailerKey = (idTMDB) => {
     }
 }
 
+export const deleteSearchResults = () => {         
+    return(dispatch) => {
+        dispatch(delSearchResults());
+    }
+}
+
 export const searchResultsSlice = createSlice({
     name: 'searchResults',
     initialState:{
@@ -108,13 +114,18 @@ export const searchResultsSlice = createSlice({
         },
         setTrailerKey: (state, currentTrailerKey) =>{   
             state.trailerKey = currentTrailerKey.payload;
+        },
+        delSearchResults: (state) => {   
+            state.searchResults = {};
+            state.additionalInfo = {};
+            state.similarFilmsArr = [];
         }
          
     },
 
 });
 
-export const {setSearchResults, setIdTMDB, setIdImdb, setAdditionalInfo, setSimilarFilmsArr, setTrailerKey} = searchResultsSlice.actions;
+export const {setSearchResults, setIdTMDB, setIdImdb, setAdditionalInfo, setSimilarFilmsArr, setTrailerKey, delSearchResults} = searchResultsSlice.actions;
 export const selectSearchResults = state => state.searchResults;
 export const selectSimilarFilms = state => state.searchResults.similarFilmsArr;
 export default searchResultsSlice.reducer;  

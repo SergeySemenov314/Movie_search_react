@@ -2,7 +2,7 @@ import cl from './SimilarItem.module.css';
 import { Link } from 'react-router-dom';
 import similarPoster from '../../../../images/similar.jpg'
 import { useDispatch } from 'react-redux';
-import {fetchSearchResults, fetchSimilarFilms, fetchTrailerKey} from '../../../../store/searchResultsSlice';
+import {deleteSearchResults, fetchSearchResults, fetchSimilarFilms, fetchTrailerKey} from '../../../../store/searchResultsSlice';
 
 
 function SimilarItem(props) {
@@ -38,6 +38,7 @@ function SimilarItem(props) {
     const clickHandler = () => {
         let filmTitle = fimlObj.title;
         let idTMDB = fimlObj.id;
+        dispatch(deleteSearchResults());
         dispatch(fetchSearchResults(filmTitle));
         dispatch(fetchSimilarFilms(idTMDB));  
         dispatch(fetchTrailerKey(idTMDB));  
