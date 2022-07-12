@@ -17,16 +17,16 @@ function AboutFilm(props) {
      
     const searchResults = useSelector(selectSearchResults);
 
-    let bgImgName = searchResults.searchResults.backdrop_path;
-    let bgImgURL = `https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${bgImgName}`;
-    let title = searchResults.searchResults.title;
-    let imdbRating = searchResults.additionalInfo.imdbRating;
-    let type = searchResults.additionalInfo.type;
-    let genre = searchResults.searchResults.genres[0].name;
-    let year = searchResults.additionalInfo.year;
-    let awards = searchResults.additionalInfo.awards;
-    let overview = searchResults.searchResults.overview;
-    let trailerKey = searchResults.trailerKey;
+    let bgImgName = searchResults?.searchResults.backdrop_path;
+    let bgImgURL = `https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${bgImgName}`;
+    let title = searchResults?.searchResults.title;
+    let imdbRating = searchResults?.additionalInfo.imdbRating;
+    let type = searchResults?.additionalInfo.type;
+    let genre = searchResults?.searchResults.genres[0].name;
+    let year = searchResults?.additionalInfo.year;
+    let awards = searchResults?.additionalInfo.awards;
+    let overview = searchResults?.searchResults.overview;
+    let trailerKey = searchResults?.trailerKey;
 
 
 
@@ -57,9 +57,11 @@ function AboutFilm(props) {
                                 <span className={cl.year}>{year}</span>
                             </div>
                         </div>
-                       
-                        <button className={cl.btnTrailer} onClick = {() => setModalActive(true)}>Watch</button>
-                        <p className={cl.awards}>{awards}</p>
+                        {trailerKey &&
+                            <button className={cl.btnTrailer} onClick = {() => setModalActive(true)}>Watch</button>
+                        }
+                        
+                        <p className={`${cl.awards} ${!trailerKey ? cl.awardsMt : ''}`}>{awards}</p>
                     </div>
                 </div>
             </div>
