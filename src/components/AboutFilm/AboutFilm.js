@@ -113,7 +113,7 @@ function AboutFilm(props) {
 
                     <Modal active={modalActive} setActive={setModalActive}>
                         <div className={cl.modalWrapper}>
-                            <iframe
+                            <iframe title='Trailer'
                                 className={cl.trailerIframe}
                                 src={
                                     modalActive ? `https://www.youtube.com/embed/${trailerKey}` : ""
