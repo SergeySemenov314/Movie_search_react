@@ -35,7 +35,7 @@ export const fetchSearchResults = (searchValue) => {
 
 export const fetchAdditionalInfo = (idImdb) => {         
     return(dispatch) => {
-        fetch(`http://www.omdbapi.com/?apikey=${env.apiKeyOMDb}&i=${idImdb}`)
+        fetch(`https://www.omdbapi.com/?apikey=${env.apiKeyOMDb}&i=${idImdb}`)
         .then(response => response.json() )
         .then (movieObjOMDb => {  
             let imdbRating = movieObjOMDb.imdbRating;
